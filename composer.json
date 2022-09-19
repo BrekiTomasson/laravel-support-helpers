@@ -1,0 +1,37 @@
+{
+    "name": "brekitomasson/laravel-support-helpers",
+    "description": "Helper methods in the spirit of Laravel's Arr and Str.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "BrekiTomasson\\Support\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Breki Tomasson",
+            "email": "breki.tomasson@gmail.com"
+        }
+    ],
+    "minimum-stability": "beta",
+    "require": {
+        "illuminate/support": "^9.0"
+    },
+    "require-dev": {
+        "brekitomasson/php-cs-fixer-breki-config": "^1.1",
+        "nunomaduro/larastan": "^2.2",
+        "pestphp/pest": "^1.22",
+        "orchestra/testbench": "^7.7"
+    },
+    "scripts": {
+        "pest": "vendor/bin/pest --coverage --colors=always",
+        "stan": "vendor/bin/phpstan analyse",
+        "fix": "vendor/bin/php-cs-fixer fix --config ./.php-cs-fixer.php"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}
