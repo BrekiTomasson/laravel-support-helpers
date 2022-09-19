@@ -27,7 +27,7 @@ class Num
     public static function decimal(float|int|string $value): int
     {
         /* @noinspection PrintfScanfArgumentsInspection */
-        return sscanf((string) self::clean($value), '%d.%d')[1] ?? 0;
+        return sscanf((string) $value, '%d.%d')[1] ?? 0;
     }
 
     /** @return Collection<int, int> */
