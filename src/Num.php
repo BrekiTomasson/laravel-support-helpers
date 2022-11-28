@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace BrekiTomasson\Support;
 
@@ -33,15 +33,15 @@ class Num
     /** @return Collection<int, int> */
     public static function factors(int $value): Collection
     {
-        $factors = [];
+        $factors = new Collection();
 
         for ($iteration = 2; $iteration < $value; $iteration++) {
             if ($value % $iteration === 0) {
-                $factors[] = $iteration;
+                $factors->add($iteration);
             }
         }
 
-        return collect($factors);
+        return $factors;
     }
 
     /** Checks if a number is between two other numbers. Inclusive by default. */
@@ -63,7 +63,6 @@ class Num
         return sscanf((string) self::clean($value), '%d.%d')[0] ?? 0;
     }
 
-    /** @return float */
     public static function percentOf(int|float $value, int|float $total): float
     {
         return $value / $total * 100;

@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace BrekiTomasson\Support;
 
@@ -14,6 +14,13 @@ class Number
     public function __construct(float|int|string $number)
     {
         $this->value = Num::clean($number);
+    }
+
+    public function add(float|int $number): self
+    {
+        $this->value += $number;
+
+        return $this;
     }
 
     public function decimal(): self
@@ -43,9 +50,23 @@ class Number
         return Num::inRange($this->value, $lower_bound, $upper_bound, $inclusive);
     }
 
+    public function integer(): self
+    {
+        $this->value = Num::integer($this->value);
+
+        return $this;
+    }
+
     public function lessThan(int|float $value): bool
     {
         return $this->value < $value;
+    }
+
+    public function over(float|int $number): self
+    {
+        $this->value /= $number;
+
+        return $this;
     }
 
     public function percentOf(int|float $total): self
@@ -62,8 +83,23 @@ class Number
         return $this;
     }
 
+    public function sub(float|int $number): self
+    {
+        $this->value -= $number;
+
+        return $this;
+    }
+
+    public function times(float|int $number): self
+    {
+        $this->value *= $number;
+
+        return $this;
+    }
+
     public function toNumber(): float|int
     {
+        /* Using Num::clean to ensure float 12.0 is returned as int 12 */
         return Num::clean($this->value);
     }
 

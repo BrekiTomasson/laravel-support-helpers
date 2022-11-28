@@ -6,7 +6,10 @@
     "autoload": {
         "psr-4": {
             "BrekiTomasson\\Support\\": "src/"
-        }
+        },
+        "files": [
+            "src/Global/NumHelper.php"
+        ]
     },
     "authors": [
         {
@@ -21,6 +24,7 @@
     "require-dev": {
         "brekitomasson/php-cs-fixer-breki-config": "^1.1",
         "nunomaduro/larastan": "^2.2",
+        "psy/psysh": "^v0.11",
         "pestphp/pest": "^1.22",
         "orchestra/testbench": "^7.7"
     },
