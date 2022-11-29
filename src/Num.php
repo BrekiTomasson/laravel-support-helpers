@@ -67,9 +67,9 @@ class Num
         return sscanf((string) self::clean($value), '%d.%d')[0] ?? 0;
     }
 
-    public static function percentOf(int|float $value, int|float $total): float
+    public static function percentOf(int|float $value, int|float $total): int|float
     {
-        return $value / $total * 100;
+        return self::clean($value / $total * 100);
     }
 
     /**
@@ -78,9 +78,9 @@ class Num
      * @example Num::roundToPart(12.3, 4) => 12.25
      * @example Num::roundToPart(12.3, 3) => 12.333333333333
      */
-    public static function roundToPart(int|float $value, int $parts): float
+    public static function roundToPart(int|float $value, int $parts): int|float
     {
-        return round($value * $parts) / $parts;
+        return self::clean(round($value * $parts) / $parts);
     }
 
     /**

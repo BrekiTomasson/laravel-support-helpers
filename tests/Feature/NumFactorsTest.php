@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use BrekiTomasson\Support\Num;
 
 it('returns factors of whole numbers')

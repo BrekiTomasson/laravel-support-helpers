@@ -137,7 +137,8 @@ num(30)->percentOf(600)->toNumber()
 ### `roundToPart()`
 
 Rounds the current value to the given input's "parts of one". If the given input is `4`, the current value is 
-rounded to the nearest `1/4`, or `.25`. If the given input is `10`, the current value is rounded to the nearest tenth.
+rounded to the nearest `1/4`, or `.25`. If the given input is `10`, the current value is rounded to the nearest 
+tenth. `->roundToPart(1)` is functionally equivalent to rounding to the nearest whole number.
 
 ```php
 num(19.2342)->roundToPart(2)->toNumber()
