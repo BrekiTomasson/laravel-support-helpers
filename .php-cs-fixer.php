@@ -13,7 +13,7 @@ try {
     exit(1);
 }
 
-$config->getFinder()->in([__DIR__ . '/src'])
+$config->getFinder()->in([__DIR__ . '/src', __DIR__ . '/tests'])
     ->name('*.php')
     ->ignoreDotFiles(true)
     ->ignoreVCS(true);

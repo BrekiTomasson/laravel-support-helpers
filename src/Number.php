@@ -16,9 +16,9 @@ class Number
         $this->value = Num::clean($number);
     }
 
-    public function add(float|int $number): self
+    public function add(float|int|string $number): self
     {
-        $this->value += $number;
+        $this->value += Num::clean($number);
 
         return $this;
     }
@@ -62,9 +62,9 @@ class Number
         return $this->value < $value;
     }
 
-    public function over(float|int $number): self
+    public function over(float|int|string $number): self
     {
-        $this->value /= $number;
+        $this->value /= Num::clean($number);
 
         return $this;
     }
@@ -83,16 +83,16 @@ class Number
         return $this;
     }
 
-    public function sub(float|int $number): self
+    public function sub(float|int|string $number): self
     {
-        $this->value -= $number;
+        $this->value -= Num::clean($number);
 
         return $this;
     }
 
-    public function times(float|int $number): self
+    public function times(float|int|string $number): self
     {
-        $this->value *= $number;
+        $this->value *= Num::clean($number);
 
         return $this;
     }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace BrekiTomasson\Support;
 
 use Illuminate\Support\Collection;
+use Illuminate\Support\Str;
 use InvalidArgumentException;
 
 class Num
@@ -12,6 +13,11 @@ class Num
     /** Returns a 'clean' version of a numeric input, casting to int or float accordingly. */
     public static function clean(int|float|string $value): int|float
     {
+        if (is_string($value)) {
+            // Remove everything but numbers and decimal points from the input.
+            $value = preg_replace('/[^\d|.]/', '', $value);
+        }
+
         if (! is_numeric($value)) {
             throw new InvalidArgumentException($value . ' is not numeric.');
         }
@@ -23,7 +29,7 @@ class Num
         return (float) $value;
     }
 
-    /** Return the decimal portion of a number as an integer. Returns 0 if input is an integer. */
+    /* Return the decimal portion of a number as an integer. Returns 0 if input is an integer. */
     public static function decimal(float|int|string $value): int
     {
         /* @noinspection PrintfScanfArgumentsInspection */
