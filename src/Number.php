@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace BrekiTomasson\Support;
 
-use Illuminate\Support\Collection;
 use RuntimeException;
 
 class Number
@@ -30,8 +29,8 @@ class Number
         return $this;
     }
 
-    /** @return Collection<int, int> */
-    public function factors(): Collection
+    /** @return array<int, int> */
+    public function factors(): array
     {
         if (! is_int($this->value)) {
             throw new RuntimeException('Factorization can only be done on integers.');

@@ -35,7 +35,7 @@ it('returns integers when decimal values of floats passed as strings are zero')
     ->toBe(999);
 
 it('understands integers passed as strings with comma-separated thousands')
-    ->expect(fn () => Num::clean('1,000,000'))
+    ->expect(fn () => Num::clean('1,000,000.00'))
     ->toBeInt()
     ->toBe(1_000_000);
 
@@ -43,6 +43,11 @@ it('understands a dollar-sign input string')
     ->expect(fn () => Num::clean('$3,449.99'))
     ->toBeFloat()
     ->toBe(3449.99);
+
+it('removes all non-numeric values in input strings')
+    ->expect(fn () => Num::clean('abc123,def456.ghi789'))
+    ->toBeFloat()
+    ->toBe(123_456.789);
 
 it('throws exceptions on non-numeric strings', fn () => Num::clean('a string'))
     ->throws(InvalidArgumentException::class);

@@ -3,9 +3,6 @@
 Helper methods in the spirit of Laravel's native `Arr` and `Str`. Also offers a fluid `num($input)` helper method that
 allows you to manipulate numeric inputs with ease.
 
-While this package doesn't _technically_ require you to use it in a Laravel context, it was developed with Laravel in
-mind and uses Laravel's `Illuminate\Support` under the hood in a number of places.
-
 # Installation
 
 ```shell
@@ -65,14 +62,11 @@ num(234.56)->decimal()->toNumber()
 
 ### `factors()`
 
-Returns a `Collection` containing the factors of the current value (except 1 and the value itself). Requires the 
+Returns an array containing the factors of the current value (except 1 and the value itself). Requires the 
 current value to be a whole number, as factors cannot be calculated from values with decimal numbers.
 
-> **Note**: This method may change in future versions to return an array instead of a `Collection`. This change will 
-> cause the library to be released with a new major version.
-
 ```php
-num(39234)->factors()->toArray()
+num(39234)->factors()
 // = [2, 3, 6, 13, 26, 39, 78, 503, 1006, 1509, 3018, 6539, 13078, 19617]
 ```
 
@@ -207,4 +201,3 @@ next couple of patches/versions. None of these changes are expected to break bac
   - See how https://github.com/degecko/super-number/blob/master/src/SuperNumber.php uses `__call()` to reference 
     some native PHP methods. Something similar could be done here.
 - "percent from" equivalent of the `percentOf()` method.
-- Remove dependency on `Laravel/Support` as it's hardly used after recent rewrites.

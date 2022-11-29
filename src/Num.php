@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace BrekiTomasson\Support;
 
-use Illuminate\Support\Collection;
-use Illuminate\Support\Str;
 use InvalidArgumentException;
 
 class Num
@@ -36,14 +34,14 @@ class Num
         return sscanf((string) $value, '%d.%d')[1] ?? 0;
     }
 
-    /** @return Collection<int, int> */
-    public static function factors(int $value): Collection
+    /** @return array<int, int> */
+    public static function factors(int $value): array
     {
-        $factors = new Collection();
+        $factors = [];
 
         for ($iteration = 2; $iteration < $value; $iteration++) {
             if ($value % $iteration === 0) {
-                $factors->add($iteration);
+                $factors[] = $iteration;
             }
         }
 

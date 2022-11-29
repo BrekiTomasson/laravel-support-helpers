@@ -19,7 +19,6 @@
     ],
     "minimum-stability": "beta",
     "require": {
-        "illuminate/support": "^9.0"
     },
     "require-dev": {
         "brekitomasson/php-cs-fixer-breki-config": "^1.1",
