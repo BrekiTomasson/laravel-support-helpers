@@ -1,5 +1,7 @@
 # laravel-support-helpers
 
+> **NOTE** This repository has been archived due to a lack of interest in maintaining it.
+
 Helper methods in the spirit of Laravel's native `Arr` and `Str`. Also offers a fluid `num($input)` helper method that
 allows you to manipulate numeric inputs with ease.
 
